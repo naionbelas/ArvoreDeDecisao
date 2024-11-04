@@ -1,66 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Definindo o tipo de caractere e a visualização em diferentes dispositivos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Árvore de Decisão - Exemplo</title>
     <style>
+        /* Estilo básico para a página */
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: Arial, sans-serif; /* Definindo a fonte da página */
+            margin: 20px; /* Adicionando uma margem ao redor da página */
         }
         input, button {
-            padding: 10px;
-            margin: 5px;
-            font-size: 16px;
+            padding: 10px; /* Definindo o padding dos campos de entrada e botão */
+            margin: 5px; /* Definindo uma margem entre os campos */
+            font-size: 16px; /* Definindo o tamanho da fonte */
         }
     </style>
 </head>
 <body>
 
+    <!-- Título da página -->
     <h1>Árvore de Decisão - Exemplo de Classificação</h1>
+    
+    <!-- Instrução para o usuário -->
     <p>Informe os dados de idade e renda para prever se a pessoa compraria um produto.</p>
+    
+    <!-- Campos de entrada para idade e renda -->
     <label for="idade">Idade:</label>
-    <input type="number" id="idade" min="0" required><br>
+    <input type="number" id="idade" min="0" required><br> <!-- Campo de entrada para idade -->
+    
     <label for="renda">Renda:</label>
-    <input type="number" id="renda" min="0" required><br><br>
+    <input type="number" id="renda" min="0" required><br><br> <!-- Campo de entrada para renda -->
+    
+    <!-- Botão que chama a função de classificação -->
     <button onclick="classificar()">Classificar</button>
 
+    <!-- Área onde o resultado será exibido -->
     <h3 id="resultado"></h3>
 
     <script>
-        // Dados de treino (idade, renda, compra: 1 = sim, 0 = não)
+        // Dados de treinamento - cada objeto representa uma pessoa com idade, renda e se comprou ou não (compra: 1 = sim, 0 = não)
         const dadosTreinamento = [
-            { idade: 25, renda: 2500, compra: 1 },
-            { idade: 30, renda: 3000, compra: 1 },
-            { idade: 35, renda: 1500, compra: 0 },
-            { idade: 50, renda: 5000, compra: 1 },
-            { idade: 45, renda: 2000, compra: 0 },
-            { idade: 22, renda: 2200, compra: 0 }
+            { idade: 25, renda: 2500, compra: 1 },   // Exemplo de pessoa que comprou
+            { idade: 30, renda: 3000, compra: 1 },   // Exemplo de pessoa que comprou
+            { idade: 35, renda: 1500, compra: 0 },   // Exemplo de pessoa que não comprou
+            { idade: 50, renda: 5000, compra: 1 },   // Exemplo de pessoa que comprou
+            { idade: 45, renda: 2000, compra: 0 },   // Exemplo de pessoa que não comprou
+            { idade: 22, renda: 2200, compra: 0 }    // Exemplo de pessoa que não comprou
         ];
 
-        // Função de classificação baseada na árvore de decisão
+        // Função que será chamada ao clicar no botão "Classificar"
         function classificar() {
+            // Pegando os valores inseridos pelo usuário nos campos de idade e renda
             const idade = document.getElementById('idade').value;
             const renda = document.getElementById('renda').value;
 
-            // Verifica se a idade é menor ou maior que 30
+            // Verificando se a idade inserida é menor que 30
             if (idade < 30) {
+                // Se a idade for menor que 30, verifica a renda
                 if (renda < 2500) {
+                    // Se a renda for menor que 2500, a previsão é que a pessoa não vai comprar
                     mostrarResultado("Não vai comprar");
                 } else {
+                    // Caso contrário, se a renda for maior ou igual a 2500, a previsão é que a pessoa vai comprar
                     mostrarResultado("Vai comprar");
                 }
             } else {
+                // Se a idade for maior ou igual a 30
                 if (renda < 3000) {
+                    // Se a renda for menor que 3000, a previsão é que a pessoa não vai comprar
                     mostrarResultado("Não vai comprar");
                 } else {
+                    // Caso contrário, se a renda for maior ou igual a 3000, a previsão é que a pessoa vai comprar
                     mostrarResultado("Vai comprar");
                 }
             }
         }
 
+        // Função para mostrar o resultado da classificação
         function mostrarResultado(resultado) {
+            // Exibe o resultado da previsão na página
             document.getElementById('resultado').innerText = "Previsão: " + resultado;
         }
     </script>
