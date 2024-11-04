@@ -37,6 +37,8 @@ Copiar código
 git clone https://github.com/seu-usuario/nome-do-repositorio.git
 Abra o arquivo index.html em um navegador web de sua escolha.
 
+Projeto no Pages do github: https://naionbelas.github.io/ArvoreDeDecisao/
+
 Insira valores para idade e renda, e clique em "Classificar" para ver a previsão.
 
 Conclusão
