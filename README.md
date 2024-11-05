@@ -1,6 +1,4 @@
-# Árvore de Decisão 
-
-- Exemplo de Classificação
+# Árvore de Decisão - Exemplo de Classificação
 
 Este projeto é uma implementação simples de uma Árvore de Decisão utilizando JavaScript, desenvolvido como parte da disciplina de Inteligência Artificial do curso de Análise e Desenvolvimento de Sistemas da FATEC de Santana de Parnaína.
 
